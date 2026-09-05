@@ -55,6 +55,48 @@ body {
   --vp-c-red-1: #f66f81;
 }
 
+.dyvo-badge {
+  --dyvo-badge-page-bg: var(--vp-c-bg);
+  --dyvo-badge-link-default-color: var(--dyvo-badge-text-color, var(--vp-c-text-1));
+  --dyvo-badge-focus-outline-color: var(--vp-c-brand-1);
+}
+
+.vp-doc h1 > .dyvo-badge.vertical-align-unset,
+.vp-doc h2 > .dyvo-badge.vertical-align-unset,
+.vp-doc h3 > .dyvo-badge.vertical-align-unset {
+  --dyvo-badge-vertical-align: middle;
+}
+
+.dyvo-badge.color-info {
+  --dyvo-badge-info-text-color: var(--vp-c-text-1);
+  --dyvo-badge-info-bg-color: var(--vp-c-text-soft, var(--vp-c-default-soft));
+  --dyvo-badge-info-solid-text-color: var(--vp-c-bg);
+}
+
+.dyvo-badge.color-tip {
+  --dyvo-badge-tip-text-color: var(--vp-c-tip-1);
+  --dyvo-badge-tip-bg-color: var(--vp-c-tip-soft);
+  --dyvo-badge-tip-solid-text-color: var(--vp-c-bg);
+}
+
+.dyvo-badge.color-warning {
+  --dyvo-badge-warning-text-color: var(--vp-c-warning-1);
+  --dyvo-badge-warning-bg-color: var(--vp-c-warning-soft);
+  --dyvo-badge-warning-solid-text-color: var(--vp-c-bg);
+}
+
+.dyvo-badge.color-danger {
+  --dyvo-badge-danger-text-color: var(--vp-c-danger-1);
+  --dyvo-badge-danger-bg-color: var(--vp-c-danger-soft);
+  --dyvo-badge-danger-solid-text-color: var(--vp-c-bg);
+}
+
+.dyvo-badge.color-success {
+  --dyvo-badge-success-text-color: var(--vp-c-success-1);
+  --dyvo-badge-success-bg-color: var(--vp-c-success-soft);
+  --dyvo-badge-success-solid-text-color: var(--vp-c-bg);
+}
+
 .VPNavBarTitle .logo {
   background: transparent !important;
   height: 40px;

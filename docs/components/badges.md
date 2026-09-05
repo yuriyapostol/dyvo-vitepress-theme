@@ -1,17 +1,19 @@
 # Badges
 
-The `dyvo-vitepress-theme` package provides two custom badge components:
+The `dyvo-vitepress-theme` package registers two badge components from [`@yuriyapostol/dyvo-vue-ui`](https://github.com/yuriyapostol/dyvo-vue-ui):
 
 - `DyvoBadge` for universal, flexibly configurable badges.
 - `DyvoUserBadge` for user or content author badges with optional GitHub profile integration.
 
-These components are registered globally by the theme, so they can be used directly in markdown and Vue-powered docs pages.
+These components are registered globally by the theme, so they can be used directly in markdown and Vue-powered docs pages without importing them manually.
+
+In this theme, `DyvoBadge` and `DyvoUserBadge` are thin VitePress wrappers around the UI package components. The wrappers pass VitePress' configured base path to the UI components, so root-relative image paths like `/images/logo.svg` continue to work correctly when the site is deployed under a non-root base.
 
 Because the package extends the VitePress default theme, the original VitePress `Badge` remains available too.
 
 ## `DyvoBadge`
 
-`DyvoBadge` supports:
+`DyvoBadge` supports the same core API as the UI package component:
 
 - text via `text` prop or default slot;
 - colors via `color`: `info`, `tip`, `warning`, `danger`, `success`;
@@ -20,6 +22,7 @@ Because the package extends the VitePress default theme, the original VitePress 
 - vertical alignment via `verticalAlign`: `unset`, `baseline`, `middle`, `super`, `sub`;
 - optional image via `imageSrc` / `imageAlt` props or the `image` slot;
 - optional link via `href`;
+- optional base path via `base`;
 - interactive state via `interactive`;
 - disabled state via `disabled`.
 
@@ -105,7 +108,7 @@ Size options:
 <DyvoBadge size="small" image="/images/logo.svg">small</DyvoBadge>
 ```
 
-Dyvo badges also work well inside headings, with middle vertical alignment by default:
+In `dyvo-vitepress-theme`, Dyvo badges also work well inside VitePress document headings, with middle vertical alignment by default:
 
 <div style="display:grid; gap:8px; margin:16px 0;">
   <h1 style="margin:0; padding:0; border:0;">Heading Level 1 <DyvoBadge color="info" variant="solid">h1</DyvoBadge></h1>
@@ -223,7 +226,7 @@ You can also customize badge styling through CSS variables passed via the `style
 
 ## `DyvoUserBadge`
 
-`DyvoUserBadge` wraps `DyvoBadge` and adds user-oriented defaults.
+`DyvoUserBadge` wraps `DyvoBadge` in the UI package and adds user-oriented defaults.
 
 It supports:
 
@@ -232,6 +235,7 @@ It supports:
 - optional `href` override;
 - optional `avatarSrc` and `avatarAlt`;
 - optional `text` override;
+- optional base path via `base`;
 - the same `color`, `variant`, `size`, `interactive`, and `disabled` props as `DyvoBadge`.
 
 If `github` is provided:

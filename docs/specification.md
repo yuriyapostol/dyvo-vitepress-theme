@@ -58,7 +58,7 @@ The initial `theme core` is expected to contain:
 - custom `Layout` wrapper;
 - local navigation;
 - sidebar components;
-- shared badges and related theme UI components;
+- VitePress wrappers for shared badge UI from `@yuriyapostol/dyvo-vue-ui`;
 - base CSS customizations;
 - theme config typings.
 
@@ -99,8 +99,8 @@ src/
       Sidebar.vue
       SidebarGroup.vue
       SidebarItem.vue
-      DyvoBadge.vue
-      DyvoUserBadge.vue
+      DyvoBadge.vue        # VitePress wrapper around @yuriyapostol/dyvo-vue-ui
+      DyvoUserBadge.vue    # VitePress wrapper around @yuriyapostol/dyvo-vue-ui
     internals/
       vitepress-internals.d.ts
   features/

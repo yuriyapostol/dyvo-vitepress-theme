@@ -51,6 +51,7 @@
     "documentation"
   ],
   "dependencies": {
+    "@yuriyapostol/dyvo-vue-ui": "file:../dyvo-vue-ui",
     "@vueuse/core": "^12.8.2"
   },
   "peerDependencies": {

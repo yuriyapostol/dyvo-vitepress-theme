@@ -1,17 +1,19 @@
 # Бейджі
 
-Пакет `dyvo-vitepress-theme` надає два кастомні компоненти бейджів:
+Пакет `dyvo-vitepress-theme` реєструє два компоненти бейджів із [`@yuriyapostol/dyvo-vue-ui`](https://github.com/yuriyapostol/dyvo-vue-ui):
 
 - `DyvoBadge` для універсальних, гнучко налаштовуваних бейджів.
 - `DyvoUserBadge` для бейджів користувача або автора матеріалу і опційною інтеграцією з GitHub-профілем.
 
-Ці компоненти глобально реєструються темою, тому їх можна напряму використовувати в markdown і на Vue-сторінках документації.
+Ці компоненти глобально реєструються темою, тому їх можна напряму використовувати в markdown і на Vue-сторінках документації без ручного імпорту.
+
+У цій темі `DyvoBadge` і `DyvoUserBadge` є тонкими VitePress-обгортками навколо компонентів з UI-пакета. Обгортки передають у UI-компоненти налаштований base path VitePress, тому root-relative шляхи до зображень на кшталт `/images/logo.svg` коректно працюють і тоді, коли сайт опублікований не в корені домену.
 
 Оскільки пакет розширює стандартну тему VitePress, оригінальний `Badge` з VitePress теж лишається доступним.
 
 ## `DyvoBadge`
 
-`DyvoBadge` підтримує:
+`DyvoBadge` підтримує той самий основний API, що й компонент з UI-пакета:
 
 - текст через проп `text` або default slot;
 - кольори через `color`: `info`, `tip`, `warning`, `danger`, `success`;
@@ -20,6 +22,7 @@
 - вертикальне вирівнювання через `verticalAlign`: `unset`, `baseline`, `middle`, `super`, `sub`;
 - опційне зображення через параметри `imageSrc` / `imageAlt` або слот `image`;
 - опційне посилання через `href`;
+- опційний base path через `base`;
 - інтерактивний стан через `interactive`;
 - вимкнений стан через `disabled`.
 
@@ -105,7 +108,7 @@
 <DyvoBadge size="small" image="/images/logo.svg">small</DyvoBadge>
 ```
 
-Dyvo-бейджі також добре працюють у заголовках, з вертикальним вирівнюванням по центру за замовчуванням:
+У `dyvo-vitepress-theme` Dyvo-бейджі також добре працюють у заголовках VitePress-документа, з вертикальним вирівнюванням по центру за замовчуванням:
 
 <div style="display:grid; gap:8px; margin:16px 0;">
   <h1 style="margin:0; padding:0; border:0;">Заголовок першого рівня <DyvoBadge color="info" variant="solid">h1</DyvoBadge></h1>
@@ -223,7 +226,7 @@ Dyvo-бейджі також добре працюють у заголовках
 
 ## `DyvoUserBadge`
 
-`DyvoUserBadge` обгортає `DyvoBadge` і додає дефолти для користувача або автора.
+`DyvoUserBadge` обгортає `DyvoBadge` в UI-пакеті і додає дефолти для користувача або автора.
 
 Він підтримує:
 
@@ -232,6 +235,7 @@ Dyvo-бейджі також добре працюють у заголовках
 - опційний `href`, який перевизначає посилання;
 - опційні `avatarSrc` і `avatarAlt`;
 - опційний `text` для перевизначення видимого підпису;
+- опційний base path через `base`;
 - ті самі `color`, `variant`, `size`, `interactive` і `disabled`, що й `DyvoBadge`.
 
 Якщо передано `github`:

@@ -62,7 +62,7 @@
 - кастомну обгортку `Layout`;
 - local navigation;
 - компоненти sidebar;
-- спільні badges та пов’язані UI-компоненти теми;
+- VitePress-обгортки для спільних badge UI з `@yuriyapostol/dyvo-vue-ui`;
 - базові CSS-кастомізації;
 - типи конфігурації теми.
 
@@ -106,8 +106,8 @@ src/
       Sidebar.vue
       SidebarGroup.vue
       SidebarItem.vue
-      DyvoBadge.vue
-      DyvoUserBadge.vue
+      DyvoBadge.vue        # VitePress-обгортка над @yuriyapostol/dyvo-vue-ui
+      DyvoUserBadge.vue    # VitePress-обгортка над @yuriyapostol/dyvo-vue-ui
     internals/
       vitepress-internals.d.ts
   features/
