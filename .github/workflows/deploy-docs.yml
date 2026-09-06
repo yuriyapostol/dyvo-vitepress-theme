@@ -18,15 +18,33 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dyvo-vitepress-theme
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          path: dyvo-vitepress-theme
+
+      - name: Checkout Vue UI
+        uses: actions/checkout@v6
+        with:
+          repository: yuriyapostol/dyvo-vue-ui
+          path: dyvo-vue-ui
 
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: dyvo-vitepress-theme/package-lock.json
+
+      - name: Build Vue UI
+        working-directory: dyvo-vue-ui
+        run: |
+          npm ci
+          npm run build
 
       - name: Install dependencies
         run: npm ci
@@ -42,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs/.vitepress/dist
+          path: dyvo-vitepress-theme/docs/.vitepress/dist
 
   deploy:
     needs: build
