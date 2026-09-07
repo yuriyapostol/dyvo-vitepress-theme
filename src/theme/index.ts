@@ -11,7 +11,6 @@ import NewsMetaAuthors from '../features/news/NewsMetaAuthors.vue'
 import NewsMetaPublishedAt from '../features/news/NewsMetaPublishedAt.vue'
 import NewsMetaStatuses from '../features/news/NewsMetaStatuses.vue'
 import { defineComponent, h } from 'vue'
-import '@yuriyapostol/dyvo-vue-ui/style.css'
 import './styles/base.css'
 
 const ThemeLayout = defineComponent({

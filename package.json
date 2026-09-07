@@ -51,16 +51,16 @@
     "documentation"
   ],
   "dependencies": {
-    "@yuriyapostol/dyvo-vue-ui": "file:../dyvo-vue-ui",
-    "@vueuse/core": "^12.8.2"
+    "@vueuse/core": "^12.8.2",
+    "@yuriyapostol/dyvo-vue-ui": "^0.1.0"
   },
   "peerDependencies": {
     "vitepress": "^1.6.4",
     "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@types/node": "^24.13.2",
     "@giscus/vue": "^3.1.1",
+    "@types/node": "^24.13.2",
     "typescript": "^5.9.2",
     "vitepress": "^1.6.4",
     "vue": "^3.5.20",
